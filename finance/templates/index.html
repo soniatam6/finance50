@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    View Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+        <div class="container">
+        <h2>Portfolio Stocks</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Shares</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in list %}
+                <tr>
+                    <td scope="row">{{ transaction.name }}</td>
+                    <td>{{ transaction.symbol }}</td>
+                    <td>{{ transaction.shares }}</td>
+                    <td>{{ transaction.price | usd }}</td>
+                    <td>{{ transaction.value | usd }}</td>
+                </tr>
+                {% endfor %}
+                <tr id="totals">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>Cash</b></td>
+                    <td>{{ cash | usd }}</td>
+                </tr>
+
+                <tr id="totals">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>TOTAL</b></td>
+                    <td>{{ total | usd }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

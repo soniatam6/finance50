@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    View Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+
+        <h2>Portfolio Stocks</h2>
+
+        <i>You do not have any stocks yet. Buy some stocks now!</i>
+
+        <br>
+        <i> You currently have {{ cash | usd }}.</i>
+{% endblock %}
